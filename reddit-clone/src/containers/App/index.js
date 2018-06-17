@@ -43,10 +43,12 @@ class App extends Component {
   // We're checking if this.props.childrn exists or not, and if it exists we clone that element and pass all our props to all our children.
   // Calling cloneElement will shallowly merge the already existing props in this.props.children and the props we passed here (firebaseRef, posts, and loading).
   // firebaseRef, posts, and loading props will be available to all routes.
+  // We'll use firebase's set method to update our voting count. 
   render() {
     return (
       <div className="App">
         {this.props.children && React.cloneElement(this.props.children, {
+          // https://github.com/ReactTraining/react-router/blob/v3/examples/passing-props-to-children/app.js#L56-L58
           firebase: firebase.database(),
           posts: this.state.posts,
           loading: this.state.loading 

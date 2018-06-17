@@ -26,7 +26,9 @@ class AddPost extends Component {
 
     // Sets the current value of the title to our database.
     this.props.firebase.ref('posts').push({
-      title: this.state.title
+      title: this.state.title,
+      upvote: 0,
+      downvote: 0
     });
 
     // After the new post has been stored in the database, we make the input box empty again, ready to add a new post.
