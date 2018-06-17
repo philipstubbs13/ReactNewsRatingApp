@@ -15,7 +15,7 @@ class App extends Component {
   state = {
     posts: [],
     loading: true
-  }
+  };
 
   componentWillMount() {
 
