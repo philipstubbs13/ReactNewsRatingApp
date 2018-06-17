@@ -1,17 +1,20 @@
 // import React
 import React, { Component } from 'react';
-// import Firebase
-import * as firebase from "firebase";
 // import Firebase 
-import config from './firebase-config';
+import firebase from './firebase-config';
 
 
 class App extends Component {
   constructor() {
     super();
 
-    // Initialize Firebase
-    firebase.initializeApp(config);
+    console.log(firebase.name);
+    console.log(firebase.database());
+  }
+
+  state = {
+    posts: [],
+    loading: true
   }
 
   componentWillMount() {
@@ -44,7 +47,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.children && React.cloneElement(this.props.children, {
-          firebaseRef: firebase.database().ref('posts'),
+          firebase: firebase.database(),
           posts: this.state.posts,
           loading: this.state.loading 
         })}
