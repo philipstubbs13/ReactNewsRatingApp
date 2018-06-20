@@ -27,7 +27,7 @@ function SwaggyAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
             React News Rating App

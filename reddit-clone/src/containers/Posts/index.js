@@ -1,7 +1,20 @@
 // src/containers/Posts/index.js
 // Here, we're just mapping over the data and rendering it to the user interface.
 
+// import React
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
 
 class Posts extends Component {
 
@@ -23,6 +36,7 @@ class Posts extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     let posts = this.props.posts;
     let _this = this;
 
@@ -53,18 +67,24 @@ class Posts extends Component {
                   Downvotes: { posts[key].downvote } 
                 </div>
                 <div>
-                  <button
+                  <Button
                     onClick={ _this.handleUpvote.bind(this, posts[key], key) }
                     type="button"
+                    variant="contained" 
+                    color="primary" 
+                    className={classes.button}
                   >
-                    Upvote
-                  </button>
-                  <button
+                    Like
+                  </Button>
+                  <Button
                     onClick={ _this.handleDownvote.bind(this, posts[key], key) }
                     type="button"
+                    variant="contained" 
+                    color="secondary" 
+                    className={classes.button}
                   >
-                    Downvote
-                  </button>
+                    Dislike
+                  </Button>
                 </div>
               </div>
             );
@@ -74,4 +94,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default withStyles(styles)(Posts);
