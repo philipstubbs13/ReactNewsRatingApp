@@ -4,9 +4,13 @@ import React, { Component } from 'react';
 import firebase from './firebase-config';
 // import AppBar component
 import SwaggyAppBar from '../../components/AppBar';
+// import Add button and icon
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+// import material ui styles
 import { withStyles } from '@material-ui/core/styles';
+// import Footer component
+import Footer from '../../components/Footer';
 
 const styles = theme => ({
   button: {
@@ -69,6 +73,7 @@ class App extends Component {
           posts: this.state.posts,
           loading: this.state.loading 
         })}
+        <Footer />
       </div>
     );
   }
