@@ -6,14 +6,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
-  input: {
-    display: 'none',
+  counter: {
+    fontSize: 18,
+    marginTop: 10,
   },
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3,
+  }),
 });
 
 class Posts extends Component {
@@ -57,35 +65,37 @@ class Posts extends Component {
         { Object.keys(posts).map(function(key) {
             return (
               <div key={key}>
-                <div> 
-                Title: { posts[key].title } 
-                </div>
-                <div> 
-                  Upvotes: { posts[key].upvote } 
-                </div>
-                <div> 
-                  Downvotes: { posts[key].downvote } 
-                </div>
-                <div>
-                  <Button
-                    onClick={ _this.handleUpvote.bind(this, posts[key], key) }
-                    type="button"
-                    variant="contained" 
-                    color="primary" 
-                    className={classes.button}
-                  >
-                    Like
-                  </Button>
-                  <Button
-                    onClick={ _this.handleDownvote.bind(this, posts[key], key) }
-                    type="button"
-                    variant="contained" 
-                    color="secondary" 
-                    className={classes.button}
-                  >
-                    Dislike
-                  </Button>
-                </div>
+                <Paper className={classes.root} elevation={4}>
+                  <Typography variant="headline" component="h3">
+                  Title: { posts[key].title } 
+                  </Typography>
+                  <Typography component="p" className={classes.counter}>
+                    Likes: { posts[key].upvote } 
+                  </Typography>
+                  <Typography component="p" className={classes.counter}>
+                    Dislikes: { posts[key].downvote } 
+                  </Typography>
+                  <div>
+                    <Button
+                      onClick={ _this.handleUpvote.bind(this, posts[key], key) }
+                      type="button"
+                      variant="contained" 
+                      color="primary" 
+                      className={classes.button}
+                    >
+                      Like
+                    </Button>
+                    <Button
+                      onClick={ _this.handleDownvote.bind(this, posts[key], key) }
+                      type="button"
+                      variant="contained" 
+                      color="secondary" 
+                      className={classes.button}
+                    >
+                      Dislike
+                    </Button>
+                  </div>
+                </Paper>
               </div>
             );
         })}
