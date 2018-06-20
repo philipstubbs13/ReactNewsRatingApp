@@ -4,6 +4,15 @@ import React, { Component } from 'react';
 import firebase from './firebase-config';
 // import AppBar component
 import SwaggyAppBar from '../../components/AppBar';
+import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+});
 
 
 class App extends Component {
@@ -47,9 +56,13 @@ class App extends Component {
   // firebaseRef, posts, and loading props will be available to all routes.
   // We'll use firebase's set method to update our voting count. 
   render() {
+    const { classes } = this.props;
     return (
       <div className="App">
         <SwaggyAppBar />
+          <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
+          <AddIcon />
+        </Button>
         {this.props.children && React.cloneElement(this.props.children, {
           // https://github.com/ReactTraining/react-router/blob/v3/examples/passing-props-to-children/app.js#L56-L58
           firebase: firebase.database(),
@@ -61,4 +74,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
