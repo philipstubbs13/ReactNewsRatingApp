@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import './AppBar.css';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -31,9 +32,11 @@ function SwaggyAppBar(props) {
         <div className={classes.root} >
           <AppBar position="static" className="appBar" >
             <Toolbar>
-              <Typography variant="title" color="inherit" className={classes.flex}>
-                React News Rating App
-              </Typography>
+              <Link to="/" className="link">
+                <Typography variant="title" color="inherit" className={classes.flex}>
+                  React News Rating App
+                </Typography>
+              </Link>
             </Toolbar>
           </AppBar>
         </div>

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import './AddPost.css';
 
 const styles = theme => ({
   button: {
@@ -111,10 +113,12 @@ class AddPost extends Component {
                 onChange={ this.handleChange }
                 value={ this.state.body }
               />
-              <Button variant="contained" color="primary" className={classes.button} type="submit"
-                onClick={ this.handleSubmit }>
-                Submit post
-              </Button>
+              <Link to="/" className="link">
+                <Button variant="contained" color="primary" className={classes.button} type="submit"
+                  onClick={ this.handleSubmit }>
+                  Submit post
+                </Button>
+              </Link>
             </Paper>
             </Grid>
           </Grid>

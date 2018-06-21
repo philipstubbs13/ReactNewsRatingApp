@@ -3,6 +3,7 @@
 
 // import React
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -75,9 +76,11 @@ class Posts extends Component {
         <div className="Posts main-content-section">
           <Grid container spacing={24}>
             <Grid item xs={12}>
-              <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
-                <AddIcon />
-              </Button>
+              <Link to="/add-post">
+                <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
+                  <AddIcon />
+                </Button>
+              </Link>
               { Object.keys(posts).map(function(key) {
                   return (
                     <div key={key}>
