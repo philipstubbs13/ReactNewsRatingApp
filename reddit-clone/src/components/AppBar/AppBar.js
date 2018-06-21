@@ -1,4 +1,5 @@
 import React from 'react';
+import './AppBar.css';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 const styles = {
   root: {
     flexGrow: 1,
+    borderStyle: 'solid',
+    borderColor: 'black',
+    borderWidth: 2,
   },
   flex: {
     flex: 1,
@@ -21,8 +25,8 @@ const styles = {
 function SwaggyAppBar(props) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div className={classes.root} >
+      <AppBar position="static" className="appBar" >
         <Toolbar>
           <Typography variant="title" color="inherit" className={classes.flex}>
             React News Rating App

@@ -11,6 +11,10 @@ const styles = {
   card: {
     minWidth: 275,
     marginTop: 80,
+    borderStyle: 'outset',
+    borderColor: 'black',
+    borderWidth: 2,
+    backgroundColor: 'dodgerblue',
   },
   bullet: {
     display: 'inline-block',
@@ -24,6 +28,9 @@ const styles = {
   pos: {
     marginBottom: 12,
   },
+  button: {
+    backgroundColor: 'white',
+  }
 };
 
 function Footer(props) {
