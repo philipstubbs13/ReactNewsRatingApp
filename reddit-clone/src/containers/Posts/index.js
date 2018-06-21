@@ -26,6 +26,9 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
+    borderStyle: 'outset',
+    borderColor: 'black',
+    borderWidth: 2,
   }),
 });
 
@@ -83,7 +86,7 @@ class Posts extends Component {
                   { posts[key].body } 
                   </Typography>
                   <Typography component="p" className={classes.counter}>
-                    Likes: { posts[key].upvote } 
+                      Likes: { posts[key].upvote }  
                   </Typography>
                   <Typography component="p" className={classes.counter}>
                     Dislikes: { posts[key].downvote } 
