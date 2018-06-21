@@ -61,7 +61,7 @@ class Posts extends Component {
     }
 
     return (
-      <div className="Posts">
+      <div className="Posts main-content-section">
         { Object.keys(posts).map(function(key) {
             return (
               <div key={key}>

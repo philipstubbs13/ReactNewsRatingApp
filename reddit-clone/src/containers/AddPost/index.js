@@ -39,7 +39,7 @@ class AddPost extends Component {
 
   render() {
     return (
-      <div className="AddPost">
+      <div className="AddPost main-content-section">
         <input
           type="text"
           placeholder="Write the title of your post"

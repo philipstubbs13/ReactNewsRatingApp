@@ -62,7 +62,7 @@ class App extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="App">
+      <div className="App main-content-section">
         <SwaggyAppBar />
           <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
           <AddIcon />
