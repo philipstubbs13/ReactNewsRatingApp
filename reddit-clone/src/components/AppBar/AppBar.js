@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
   root: {
@@ -25,15 +26,19 @@ const styles = {
 function SwaggyAppBar(props) {
   const { classes } = props;
   return (
-    <div className={classes.root} >
-      <AppBar position="static" className="appBar" >
-        <Toolbar>
-          <Typography variant="title" color="inherit" className={classes.flex}>
-            React News Rating App
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <Grid container spacing={24}>
+      <Grid item xs={12}>
+        <div className={classes.root} >
+          <AppBar position="static" className="appBar" >
+            <Toolbar>
+              <Typography variant="title" color="inherit" className={classes.flex}>
+                React News Rating App
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </div>
+      </Grid>
+    </Grid>
   );
 }
 

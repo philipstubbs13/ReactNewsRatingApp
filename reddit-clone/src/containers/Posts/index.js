@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   button: {
@@ -71,51 +72,55 @@ class Posts extends Component {
     }
 
     return (
-      <div className="Posts main-content-section">
-        <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
-          <AddIcon />
-        </Button>
-        { Object.keys(posts).map(function(key) {
-            return (
-              <div key={key}>
-                <Paper className={classes.root} elevation={4}>
-                  <Typography variant="headline" component="h3">
-                  Title: { posts[key].title } 
-                  </Typography>
-                  <Typography component="p" className={classes.body}>
-                  { posts[key].body } 
-                  </Typography>
-                  <Typography component="p" className={classes.counter}>
-                      Likes: { posts[key].upvote }  
-                  </Typography>
-                  <Typography component="p" className={classes.counter}>
-                    Dislikes: { posts[key].downvote } 
-                  </Typography>
-                  <div>
-                    <Button
-                      onClick={ _this.handleUpvote.bind(this, posts[key], key) }
-                      type="button"
-                      variant="contained" 
-                      color="primary" 
-                      className={classes.button}
-                    >
-                      Like
-                    </Button>
-                    <Button
-                      onClick={ _this.handleDownvote.bind(this, posts[key], key) }
-                      type="button"
-                      variant="contained" 
-                      color="secondary" 
-                      className={classes.button}
-                    >
-                      Dislike
-                    </Button>
-                  </div>
-                </Paper>
-              </div>
-            );
-        })}
-      </div>
+        <div className="Posts main-content-section">
+          <Grid container spacing={24}>
+            <Grid item xs={12}>
+              <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
+                <AddIcon />
+              </Button>
+              { Object.keys(posts).map(function(key) {
+                  return (
+                    <div key={key}>
+                      <Paper className={classes.root} elevation={4}>
+                        <Typography variant="headline" component="h3">
+                        Title: { posts[key].title } 
+                        </Typography>
+                        <Typography component="p" className={classes.body}>
+                        { posts[key].body } 
+                        </Typography>
+                        <Typography component="p" className={classes.counter}>
+                            Likes: { posts[key].upvote }  
+                        </Typography>
+                        <Typography component="p" className={classes.counter}>
+                          Dislikes: { posts[key].downvote } 
+                        </Typography>
+                        <div>
+                          <Button
+                            onClick={ _this.handleUpvote.bind(this, posts[key], key) }
+                            type="button"
+                            variant="contained" 
+                            color="primary" 
+                            className={classes.button}
+                          >
+                            Like
+                          </Button>
+                          <Button
+                            onClick={ _this.handleDownvote.bind(this, posts[key], key) }
+                            type="button"
+                            variant="contained" 
+                            color="secondary" 
+                            className={classes.button}
+                          >
+                            Dislike
+                          </Button>
+                        </div>
+                      </Paper>
+                    </div>
+                  );
+              })}
+            </Grid>
+          </Grid>
+        </div>
     );
   }
 }
