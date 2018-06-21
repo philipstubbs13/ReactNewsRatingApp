@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
@@ -62,6 +63,9 @@ class Posts extends Component {
 
     return (
       <div className="Posts main-content-section">
+        <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
+          <AddIcon />
+        </Button>
         { Object.keys(posts).map(function(key) {
             return (
               <div key={key}>

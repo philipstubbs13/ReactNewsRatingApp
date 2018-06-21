@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import firebase from './firebase-config';
 // import AppBar component
 import SwaggyAppBar from '../../components/AppBar';
-// import Add button and icon
-import AddIcon from '@material-ui/icons/Add';
-import Button from '@material-ui/core/Button';
 // import material ui styles
 import { withStyles } from '@material-ui/core/styles';
 // import Footer component
@@ -64,9 +61,6 @@ class App extends Component {
     return (
       <div className="App main-content-section">
         <SwaggyAppBar />
-          <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
-          <AddIcon />
-        </Button>
         {this.props.children && React.cloneElement(this.props.children, {
           // https://github.com/ReactTraining/react-router/blob/v3/examples/passing-props-to-children/app.js#L56-L58
           firebase: firebase.database(),
