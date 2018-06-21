@@ -4,6 +4,8 @@
       /* display: flex; */
       min-height: 100vh;
       flex-direction: column;
+      margin: 0px;
+      padding: 0px;
   }
 
   .main-content-section {
@@ -12,3 +14,4 @@
       margin-bottom: 40px;
       margin-top: 10px;
   }
+

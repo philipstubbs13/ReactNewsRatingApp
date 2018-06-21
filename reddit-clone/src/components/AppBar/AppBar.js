@@ -11,9 +11,6 @@ import Grid from '@material-ui/core/Grid';
 const styles = {
   root: {
     flexGrow: 1,
-    borderStyle: 'solid',
-    borderColor: 'black',
-    borderWidth: 2,
   },
   flex: {
     flex: 1,

@@ -103,6 +103,8 @@ class AddPost extends Component {
               <TextField
                 id="full-width"
                 label="Body"
+                multiline
+                rowsMax = "4"
                 InputLabelProps={{
                   shrink: true,
                 }}
