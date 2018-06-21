@@ -18,6 +18,10 @@ const styles = theme => ({
     fontSize: 18,
     marginTop: 10,
   },
+  body: {
+    fontSize: 18,
+    marginTop: 10,
+  },
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
@@ -31,6 +35,7 @@ class Posts extends Component {
   handleUpvote = (post, key) => {
     this.props.firebase.ref('posts/' + key).set({
       title: post.title,
+      body: post.body,
       upvote: post.upvote + 1,
       downvote: post.downvote
     });
@@ -39,6 +44,7 @@ class Posts extends Component {
   handleDownvote = (post, key) => {
     this.props.firebase.ref('posts/' + key).set({
       title: post.title,
+      body: post.body,
       upvote: post.upvote,
       downvote: post.downvote + 1
     });
@@ -72,6 +78,9 @@ class Posts extends Component {
                 <Paper className={classes.root} elevation={4}>
                   <Typography variant="headline" component="h3">
                   Title: { posts[key].title } 
+                  </Typography>
+                  <Typography component="p" className={classes.body}>
+                  { posts[key].body } 
                   </Typography>
                   <Typography component="p" className={classes.counter}>
                     Likes: { posts[key].upvote } 
