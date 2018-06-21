@@ -4,10 +4,11 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   button: {
-    margin: theme.spacing.unit,
+    marginTop: 50,
   },
   input: {
     display: 'none',
@@ -15,8 +16,18 @@ const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
+    marginTop: 50,
+    borderStyle: 'outset',
+    borderColor: 'black',
+    borderWidth: 2,
   }),
+  textField: {
+    marginTop: 50,
+  },
+  header: {
+    fontSize: 35,
+    textAlign: 'center',
+  }
 });
 
 class AddPost extends Component {
@@ -63,27 +74,51 @@ class AddPost extends Component {
     const { classes } = this.props;
     return (
       <div className="AddPost main-content-section">
-        <Paper className={classes.root} elevation={4}>
-          <Typography variant="headline" component="h1">
-            Add a post
-          </Typography>
-          <TextField
-            id="full-width"
-            label="Title"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            placeholder="Write the title of your post"
-            fullWidth
-            margin="normal"
-            onChange={ this.handleChange }
-            value={ this.state.title }
-          />
-          <Button variant="contained" color="primary" className={classes.button} type="submit"
-            onClick={ this.handleSubmit }>
-            Submit
-          </Button>
-        </Paper>
+        <Grid container>
+          <Grid item xs={12}>
+            <Grid
+            container
+            spacing={16}
+            justify='center'
+          >
+            <Paper className={classes.root} elevation={4}>
+              <Typography variant="headline" component="h1" className={classes.header}>
+                Add a post
+              </Typography>
+              <TextField
+                id="full-width"
+                label="Title"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                placeholder="Write the title of your post"
+                fullWidth
+                margin="normal"
+                className={classes.textField}
+                onChange={ this.handleChange }
+                value={ this.state.title }
+              />
+              <TextField
+                id="full-width"
+                label="Body"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                placeholder="Write your post here"
+                fullWidth
+                margin="normal"
+                className={classes.textField}
+                onChange={ this.handleChange }
+                value={ this.state.body }
+              />
+              <Button variant="contained" color="primary" className={classes.button} type="submit"
+                onClick={ this.handleSubmit }>
+                Submit post
+              </Button>
+            </Paper>
+            </Grid>
+          </Grid>
+        </Grid>
       </div>
     );
   }
