@@ -15,6 +15,7 @@ const styles = {
   flex: {
     flex: 1,
     color: "white",
+    marginLeft: 100,
   },
   menuButton: {
     marginLeft: -12,

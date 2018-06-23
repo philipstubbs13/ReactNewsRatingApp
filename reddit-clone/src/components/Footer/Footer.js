@@ -26,12 +26,18 @@ const styles = {
   },
   pos: {
     marginBottom: 12,
+    marginLeft: 100,
   },
-  button: {
+  GithubButton: {
+    backgroundColor: 'white',
+    marginLeft: 100,
+  },
+  LinkedinButton: {
     backgroundColor: 'white',
   },
   footerHeading: {
     color: 'white',
+    marginLeft: 100,
   }
 };
 
@@ -56,7 +62,7 @@ function Footer(props) {
                 <Button 
                 variant="outlined" 
                 color="primary" 
-                className={classes.button} 
+                className={classes.GithubButton} 
                 href="https://github.com/philipstubbs13/ReactNewsRatingApp"
                 target="_blank"
                 >
@@ -65,7 +71,7 @@ function Footer(props) {
                 <Button 
                 variant="outlined" 
                 color="secondary" 
-                className={classes.button}
+                className={classes.LinkedinButton}
                 href = "https://www.linkedin.com/in/philipjstubbs/"
                 target="_blank"
                 >
