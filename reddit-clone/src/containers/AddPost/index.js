@@ -33,6 +33,11 @@ const styles = theme => ({
   },
   formError: {
     color: 'red',
+  },
+  postSuccess: {
+    color: 'green',
+    marginTop: 10,
+    fontSize: 20
   }
 });
 
@@ -50,6 +55,7 @@ class AddPost extends Component {
     body: '',
     titleError: '',
     postError: '',
+    postSuccessMessage: ''
   };
 
   // The handleChange method updates our state with the value present in the input box. 
@@ -57,14 +63,16 @@ class AddPost extends Component {
   handleTitleChange = (e) => {
     this.setState({
       title: e.target.value,
-      titleError: ''
+      titleError: '',
+      postSuccessMessage: ''
     });
   }
 
    handleBodyChange = (e) => {
     this.setState({
       body: e.target.value,
-      postError: ''
+      postError: '',
+      postSuccessMessage: ''
     });
   }
 
@@ -100,7 +108,8 @@ class AddPost extends Component {
         title: '',
         body: '',
         titleError: '',
-        postError: ''
+        postError: '',
+        postSuccessMessage: 'Post created successfully!'
       });
     }
   }
@@ -154,6 +163,7 @@ class AddPost extends Component {
               >
                 Add post
               </Button>
+              <Typography component="p" className={classes.postSuccess}>{this.state.postSuccessMessage}</Typography>
             </Paper>
             </Grid>
           </Grid>
