@@ -30,6 +30,9 @@ const styles = theme => ({
   header: {
     fontSize: 35,
     textAlign: 'center',
+  },
+  formError: {
+    color: 'red',
   }
 });
 
@@ -37,20 +40,31 @@ class AddPost extends Component {
   constructor() {
     super();
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   state = {
     title: '',
-    body: ''
+    body: '',
+    titleError: '',
+    postError: '',
   };
 
   // The handleChange method updates our state with the value present in the input box. 
   // Now, when we click the button, the handleSubmit method is triggered.
-  handleChange = (e) => {
+  handleTitleChange = (e) => {
     this.setState({
-      title: e.target.value
+      title: e.target.value,
+      titleError: ''
+    });
+  }
+
+   handleBodyChange = (e) => {
+    this.setState({
+      body: e.target.value,
+      postError: ''
     });
   }
 
@@ -58,19 +72,37 @@ class AddPost extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    // Sets the current value of the title to our database.
-    this.props.firebase.ref('posts').push({
-      title: this.state.title,
-      body: this.state.body,
-      upvote: 0,
-      downvote: 0
-    });
+    // If title field is empty when user clicks Add post, return error.
+    if (this.state.title === "") {
+      this.setState({
+        titleError: "Title is required."
+      })
+    }
 
-    // After the new post has been stored in the database, we make the input box empty again, ready to add a new post.
-    this.setState({
-      title: '',
-      body: ''
-    });
+    // If post field is empty when user clicks Add post, return error.
+    if (this.state.body === "") {
+      this.setState({
+        postError: "Post is required."
+      })
+    }
+
+    else {
+      // Sets the current value of the title to our database.
+      this.props.firebase.ref('posts').push({
+        title: this.state.title,
+        body: this.state.body,
+        upvote: 0,
+        downvote: 0
+      });
+
+      // After the new post has been stored in the database, we make the input box empty again, ready to add a new post.
+      this.setState({
+        title: '',
+        body: '',
+        titleError: '',
+        postError: ''
+      });
+    }
   }
 
   render() {
@@ -96,14 +128,14 @@ class AddPost extends Component {
                 }}
                 placeholder="Write the title of your post"
                 fullWidth
-                margin="normal"
                 className={classes.textField}
-                onChange={ this.handleChange }
+                onChange={ this.handleTitleChange }
                 value={ this.state.title }
               />
+              <Typography component="p" className={classes.formError}>{this.state.titleError}</Typography>
               <TextField
                 id="full-width"
-                label="Body"
+                label="Post"
                 multiline
                 rowsMax = "4"
                 InputLabelProps={{
@@ -113,12 +145,13 @@ class AddPost extends Component {
                 fullWidth
                 margin="normal"
                 className={classes.textField}
-                onChange={ this.handleChange }
+                onChange={ this.handleBodyChange }
                 value={ this.state.body }
               />
-              <Link to="/" className="link">
-                <Button variant="contained" color="primary" className={classes.button} type="submit"
-                  onClick={ this.handleSubmit }>
+              <Typography component="p" className={classes.formError}>{this.state.postError}</Typography>
+              <Link to="/" className="link" onClick={ this.handleSubmit }>
+                <Button variant="contained" color="primary" className={classes.button} 
+                >
                   Add post
                 </Button>
               </Link>
