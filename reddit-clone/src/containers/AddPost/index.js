@@ -11,6 +11,7 @@ import './AddPost.css';
 const styles = theme => ({
   button: {
     marginTop: 50,
+    backgroundColor: '#576490',
   },
   input: {
     display: 'none',

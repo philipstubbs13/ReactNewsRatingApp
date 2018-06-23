@@ -19,6 +19,7 @@
 
   body {
     overflow-x:hidden;
+    background-color: #A3BCF9;
 }
 
 .MuiGrid-spacing-xs-24-28 > .MuiGrid-item-6 {

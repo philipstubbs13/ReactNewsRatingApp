@@ -12,7 +12,7 @@ const styles = {
   card: {
     minWidth: 275,
     marginTop: 80,
-    backgroundColor: 'dodgerblue',
+    backgroundColor: '#576490',
     marginBottom: -20,
   },
   bullet: {
@@ -27,13 +27,16 @@ const styles = {
   pos: {
     marginBottom: 12,
     marginLeft: 100,
+    color: 'white',
   },
   GithubButton: {
-    backgroundColor: 'white',
+    backgroundColor: '#7796CB',
     marginLeft: 100,
+    color: 'white',
   },
   LinkedinButton: {
-    backgroundColor: 'white',
+    backgroundColor: '#7796CB',
+    color: 'white',
   },
   footerHeading: {
     color: 'white',
@@ -54,14 +57,13 @@ function Footer(props) {
               <Typography variant="headline" component="h2" className={classes.footerHeading}>
               React News Rating App
               </Typography>
-              <Typography className={classes.pos} color="textSecondary">
+              <Typography className={classes.pos} color="white">
                 &copy; Copyright 2018 Phil Stubbs
               </Typography>
             </CardContent>
             <CardActions>
                 <Button 
                 variant="outlined" 
-                color="primary" 
                 className={classes.GithubButton} 
                 href="https://github.com/philipstubbs13/ReactNewsRatingApp"
                 target="_blank"
@@ -70,7 +72,6 @@ function Footer(props) {
                 </Button>
                 <Button 
                 variant="outlined" 
-                color="secondary" 
                 className={classes.LinkedinButton}
                 href = "https://www.linkedin.com/in/philipjstubbs/"
                 target="_blank"

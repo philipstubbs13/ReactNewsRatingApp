@@ -17,6 +17,9 @@ const styles = theme => ({
   dislikeButton: {
     margin: 20,
   },
+  button: {
+    backgroundColor: '#576490'
+  },
   counter: {
     fontSize: 18,
     marginTop: 10,
@@ -104,7 +107,6 @@ class Posts extends Component {
                             type="button"
                             variant="contained" 
                             color="primary" 
-                            className={classes.button}
                           >
                             <i className="far fa-thumbs-up"> </i> Like
                           </Button>
