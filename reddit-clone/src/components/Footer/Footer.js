@@ -12,10 +12,9 @@ const styles = {
   card: {
     minWidth: 275,
     marginTop: 80,
-    borderStyle: 'outset',
-    borderColor: 'black',
-    borderWidth: 2,
     backgroundColor: 'dodgerblue',
+    marginBottom: -20,
+    marginRight: 3,
   },
   bullet: {
     display: 'inline-block',
@@ -31,6 +30,9 @@ const styles = {
   },
   button: {
     backgroundColor: 'white',
+  },
+  footerHeading: {
+    color: 'white',
   }
 };
 
@@ -44,7 +46,7 @@ function Footer(props) {
         <div>
           <Card className={classes.card}>
             <CardContent>
-              <Typography variant="headline" component="h2">
+              <Typography variant="headline" component="h2" className={classes.footerHeading}>
               React News Rating App
               </Typography>
               <Typography className={classes.pos} color="textSecondary">

@@ -11,10 +11,11 @@ import AddIcon from '@material-ui/icons/Add';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import './index.css';
 
 const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
+  dislikeButton: {
+    margin: 20,
   },
   counter: {
     fontSize: 18,
@@ -105,16 +106,16 @@ class Posts extends Component {
                             color="primary" 
                             className={classes.button}
                           >
-                            Like
+                            <i className="far fa-thumbs-up"> </i> Like
                           </Button>
                           <Button
                             onClick={ _this.handleDownvote.bind(this, posts[key], key) }
                             type="button"
                             variant="contained" 
                             color="secondary" 
-                            className={classes.button}
+                            className={classes.dislikeButton}
                           >
-                            Dislike
+                            <i class="far fa-thumbs-down"></i> Dislike
                           </Button>
                         </div>
                       </Paper>
