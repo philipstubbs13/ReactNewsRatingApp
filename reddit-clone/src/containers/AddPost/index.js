@@ -119,7 +119,7 @@ class AddPost extends Component {
               <Link to="/" className="link">
                 <Button variant="contained" color="primary" className={classes.button} type="submit"
                   onClick={ this.handleSubmit }>
-                  Submit post
+                  Add post
                 </Button>
               </Link>
             </Paper>
