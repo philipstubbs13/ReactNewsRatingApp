@@ -14,7 +14,6 @@ const styles = {
     marginTop: 80,
     backgroundColor: 'dodgerblue',
     marginBottom: -20,
-    marginRight: 3,
   },
   bullet: {
     display: 'inline-block',

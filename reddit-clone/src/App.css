@@ -17,3 +17,11 @@
       margin-left: 60px;
   }
 
+  body {
+    overflow-x:hidden;
+}
+
+.MuiGrid-spacing-xs-24-28 > .MuiGrid-item-6 {
+    margin-right: -5px !important;
+}
+
