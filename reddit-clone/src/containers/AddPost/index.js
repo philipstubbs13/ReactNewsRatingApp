@@ -128,6 +128,7 @@ class AddPost extends Component {
                 }}
                 placeholder="Write the title of your post"
                 fullWidth
+                margin="normal"
                 className={classes.textField}
                 onChange={ this.handleTitleChange }
                 value={ this.state.title }
@@ -149,12 +150,10 @@ class AddPost extends Component {
                 value={ this.state.body }
               />
               <Typography component="p" className={classes.formError}>{this.state.postError}</Typography>
-              <Link to="/" className="link" onClick={ this.handleSubmit }>
-                <Button variant="contained" color="primary" className={classes.button} 
-                >
-                  Add post
-                </Button>
-              </Link>
+              <Button variant="contained" color="primary" className={classes.button} onClick={ this.handleSubmit }
+              >
+                Add post
+              </Button>
             </Paper>
             </Grid>
           </Grid>
