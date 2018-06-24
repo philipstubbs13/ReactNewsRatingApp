@@ -5,12 +5,13 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import './AddPost.css';
 
 const styles = theme => ({
   button: {
-    marginTop: 50,
+    marginTop: 30,
     backgroundColor: '#576490',
   },
   input: {
@@ -33,6 +34,7 @@ const styles = theme => ({
   },
   formError: {
     color: 'red',
+    marginTop: 20,
   },
   postSuccess: {
     color: 'green',
@@ -142,7 +144,7 @@ class AddPost extends Component {
                 onChange={ this.handleTitleChange }
                 value={ this.state.title }
               />
-              <Typography component="p" className={classes.formError}>{this.state.titleError}</Typography>
+              
               <TextField
                 id="full-width"
                 label="Post"
@@ -155,15 +157,18 @@ class AddPost extends Component {
                 fullWidth
                 margin="normal"
                 className={classes.textField}
-                onChange={ this.handleBodyChange }
-                value={ this.state.body }
+                onChange={this.handleBodyChange}
+                value={this.state.body}
               />
-              <Typography component="p" className={classes.formError}>{this.state.postError}</Typography>
-              <Button variant="contained" color="primary" className={classes.button} onClick={ this.handleSubmit }
+              <Button variant="contained" color="primary" className={classes.button} onClick={this.handleSubmit}
               >
                 Add post
               </Button>
               <Typography component="p" className={classes.postSuccess}>{this.state.postSuccessMessage}</Typography>
+              <InputLabel className={classes.formError}>{this.state.titleError}</InputLabel>
+              <br />
+              <InputLabel className={classes.formError}>{this.state.postError}</InputLabel>
+              <br />
             </Paper>
             </Grid>
           </Grid>
